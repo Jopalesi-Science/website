@@ -1,33 +1,21 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
 import { STICK_COLOR, BG_COLOR } from "@/lib/theme";
+import { useI18n } from "@/lib/i18n";
 
-const DRAG_THRESHOLD  = 6;
-const BOTTOM_CENTER   = { x: 50, y: 92 } as const;
-const LETTERS = "JOPALESI".split("");
+const DRAG_THRESHOLD = 6;
+const INITIAL = { x: 50, y: 73 };
 
-export default function CursorBox() {
-  const router   = useRouter();
-  const pathname = usePathname();
-  const isHome   = pathname === "/" || pathname === "/maja";
+export default function DraggableTextBox() {
+  const { t }                       = useI18n();
+  const [pos, setPos]               = useState(INITIAL);
+  const [isDragging, setDragging]   = useState(false);
 
-  const [pos, setPos]             = useState({ x: 50, y: 50 });
-  const [isDragging, setDragging] = useState(false);
-
-  const posRef      = useRef({ x: 50, y: 50 });
+  const posRef      = useRef(INITIAL);
   const draggingRef = useRef(false);
   const didDrag     = useRef(false);
-  const origin      = useRef({ mx: 0, my: 0, bx: 50, by: 50 });
-
-  // Animate to bottom-center when on sub-pages
-  useEffect(() => {
-    if (!isHome) {
-      setPos(BOTTOM_CENTER);
-      posRef.current = { ...BOTTOM_CENTER };
-    }
-  }, [isHome]);
+  const origin      = useRef({ mx: 0, my: 0, bx: INITIAL.x, by: INITIAL.y });
 
   function move(x: number, y: number) {
     const nx = Math.max(0, Math.min(100, x));
@@ -68,8 +56,6 @@ export default function CursorBox() {
       draggingRef.current = false;
       setDragging(false);
       document.body.style.cursor = "";
-      // On sub-pages a tap (no drag) navigates back to the home page
-      if (!didDrag.current && !isHome) router.push("/maja");
     };
 
     const onTouchMove = (e: TouchEvent) => {
@@ -90,7 +76,6 @@ export default function CursorBox() {
       if (!draggingRef.current) return;
       draggingRef.current = false;
       setDragging(false);
-      if (!didDrag.current && !isHome) router.push("/maja");
     };
 
     window.addEventListener("mousemove", onMouseMove);
@@ -103,48 +88,42 @@ export default function CursorBox() {
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("touchend",  onTouchEnd);
     };
-  }, [router, isHome]);
+  }, []);
 
   return (
     <div
       className="fixed z-20 select-none"
       style={{
-        left:       `${pos.x}%`,
-        top:        `${pos.y}%`,
-        transform:  "translate(-50%, -50%)",
-        cursor:     isHome ? "grab" : "pointer",
-        transition: isDragging ? "none" : "left 2s ease-in-out, top 2s ease-in-out",
+        left:      `${pos.x}%`,
+        top:       `${pos.y}%`,
+        transform: "translate(-50%, -50%)",
+        cursor:    isDragging ? "grabbing" : "grab",
+        width:     "min(32rem, calc(100vw - 4rem))",
       }}
       onMouseDown={(e) => { e.preventDefault(); startDrag(e.clientX, e.clientY); }}
       onTouchStart={(e) => { e.preventDefault(); startDrag(e.touches[0].clientX, e.touches[0].clientY); }}
     >
       <div
         style={{
-          border:     `6px solid ${STICK_COLOR}`,
+          border:     `5px solid ${STICK_COLOR}`,
           background: BG_COLOR,
-          padding:    "18px 36px",
+          padding:    "1.4rem 1.8rem",
         }}
       >
-        <div
+        <p
           style={{
-            display:        "flex",
-            justifyContent: "space-between",
-            width:          "10.5rem",
+            fontSize:      "0.92rem",
+            letterSpacing: "0.05em",
+            lineHeight:    1.75,
+            color:         "#e8e3dc",
+            opacity:       0.8,
+            margin:        0,
+            fontWeight:    600,
+            textAlign:     "justify",
           }}
         >
-          {LETTERS.map((char, i) => (
-            <span
-              key={i}
-              style={{
-                color:         STICK_COLOR,
-                fontSize:      "1.15rem",
-                textTransform: "uppercase",
-              }}
-            >
-              {char}
-            </span>
-          ))}
-        </div>
+          {t.home.description}
+        </p>
       </div>
     </div>
   );

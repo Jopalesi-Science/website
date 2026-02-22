@@ -1,39 +1,71 @@
 "use client";
 
-import Link from "next/link";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { routes } from "@/lib/routes";
+import DraggableButton from "@/components/DraggableButton";
+import LanguageButton  from "@/components/LanguageButton";
+import { navRoutes }   from "@/lib/routes";
+import { useI18n }     from "@/lib/i18n";
+import type { Translations } from "@/locales";
+
+type Layout = "desktop" | "tablet" | "mobile";
+
+// Initial positions per layout — Language is always the rightmost element.
+const INIT: Record<Layout, { nav: { x: number; y: number }[]; lang: { x: number; y: number } }> = {
+  // ≥ 768 px: single row, 5 nav + language
+  desktop: {
+    nav:  [{ x: 8, y: 5 }, { x: 20, y: 5 }, { x: 33, y: 5 }, { x: 47, y: 5 }, { x: 61, y: 5 }],
+    lang: { x: 83, y: 5 },
+  },
+  // 480–767 px: row 1 — first 3 nav; row 2 — last 2 nav + language (rightmost)
+  tablet: {
+    nav:  [{ x: 13, y: 7 }, { x: 38, y: 7 }, { x: 63, y: 7 }, { x: 22, y: 14 }, { x: 47, y: 14 }],
+    lang: { x: 78, y: 14 },
+  },
+  // < 480 px: 2 × 2 nav grid + 5th nav; language pinned top-right
+  mobile: {
+    nav:  [{ x: 22, y: 10 }, { x: 62, y: 10 }, { x: 22, y: 17 }, { x: 62, y: 17 }, { x: 22, y: 24 }],
+    lang: { x: 85, y: 5 },
+  },
+};
+
+function getLayout(w: number): Layout {
+  if (w >= 768) return "desktop";
+  if (w >= 480) return "tablet";
+  return "mobile";
+}
 
 export default function Nav() {
   const pathname = usePathname();
+  const { t }    = useI18n();
+  const [layout, setLayout] = useState<Layout>("desktop");
+
+  useEffect(() => {
+    function update() { setLayout(getLayout(window.innerWidth)); }
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const { nav: navPos, lang: langPos } = INIT[layout];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-8 py-6">
-      {/* Logo / site name */}
-      <Link href="/" className="text-sm tracking-[0.3em] uppercase opacity-80 hover:opacity-100 transition-opacity">
-        Jopalesi
-      </Link>
-
-      {/* Route links */}
-      <ul className="flex gap-8">
-        {routes
-          .filter((r) => r.path !== "/")
-          .map((route) => {
-            const isActive = pathname === route.path;
-            return (
-              <li key={route.path}>
-                <Link
-                  href={route.path}
-                  className={`text-xs tracking-[0.25em] uppercase transition-opacity ${
-                    isActive ? "opacity-100" : "opacity-50 hover:opacity-100"
-                  }`}
-                >
-                  {route.code}
-                </Link>
-              </li>
-            );
-          })}
-      </ul>
-    </nav>
+    <>
+      {navRoutes.map((route, i) => (
+        <DraggableButton
+          key={`${route.path}-${layout}`}
+          label={t.nav[route.label as keyof Translations["nav"]]}
+          href={route.path}
+          initialX={navPos[i].x}
+          initialY={navPos[i].y}
+          isActive={pathname === route.path}
+        />
+      ))}
+      <LanguageButton
+        key={`lang-${layout}`}
+        initialX={langPos.x}
+        initialY={langPos.y}
+      />
+    </>
   );
 }

@@ -41,3 +41,31 @@ a {
   background: var(--foreground);
   color: var(--background);
 }
+
+/* ── Scrollable content window ───────────────────────────────────────── */
+/* Scrollbar styled as a stick — thick, no rounding, offset from edge.  */
+/* Firefox: thin is the closest available width option.                  */
+
+.page-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #bdb2a3 transparent;
+}
+
+/* Webkit (Chrome / Safari) — full control                               */
+
+.page-scroll::-webkit-scrollbar {
+  /* Total track area. Stick occupies (width - border-right) of this.   */
+  width: 22px;
+}
+
+.page-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.page-scroll::-webkit-scrollbar-thumb {
+  background-color: #bdb2a3;
+  border-radius: 0;                  /* sharp edges — matches the sticks */
+  /* 6 px transparent gap on the right keeps the stick away from edge.  */
+  border-right: 6px solid transparent;
+  background-clip: padding-box;
+}

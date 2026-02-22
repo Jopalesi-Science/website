@@ -36,6 +36,10 @@ function createProgram(
 
 export default function ShaderBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  // Raw cursor target (updated instantly on mouse/touch move)
+  const targetCursor = useRef({ x: 0.5, y: 0.5 });
+  // Smoothed cursor sent to the shader (lerped slowly toward target)
+  const smoothCursor = useRef({ x: 0.5, y: 0.5 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -47,10 +51,10 @@ export default function ShaderBackground() {
     const program = createProgram(gl, vertexShader, fragmentShader);
     gl.useProgram(program);
 
-    // Full-screen quad (two triangles)
+    // Full-screen quad
     const positions = new Float32Array([
-      -1, -1,  1, -1,  -1,  1,
-      -1,  1,  1, -1,   1,  1,
+      -1, -1,  1, -1, -1,  1,
+      -1,  1,  1, -1,  1,  1,
     ]);
     const buf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);
@@ -60,11 +64,30 @@ export default function ShaderBackground() {
     gl.enableVertexAttribArray(posLoc);
     gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
 
-    const uTime = gl.getUniformLocation(program, "u_time");
+    const uTime       = gl.getUniformLocation(program, "u_time");
     const uResolution = gl.getUniformLocation(program, "u_resolution");
+    const uCursor     = gl.getUniformLocation(program, "u_cursor");
+
+    // Cursor tracking (raw)
+    const onMouseMove = (e: MouseEvent) => {
+      targetCursor.current = {
+        x: e.clientX / window.innerWidth,
+        y: e.clientY / window.innerHeight,
+      };
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      const t = e.touches[0];
+      targetCursor.current = {
+        x: t.clientX / window.innerWidth,
+        y: t.clientY / window.innerHeight,
+      };
+    };
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
 
     let animId: number;
     let startTime = performance.now();
+    let lastTime = startTime;
 
     function resize() {
       if (!canvas || !gl) return;
@@ -75,10 +98,21 @@ export default function ShaderBackground() {
 
     function render() {
       if (!gl || !canvas) return;
-      const elapsed = (performance.now() - startTime) / 1000;
-      gl.uniform1f(uTime, elapsed);
+
+      const now = performance.now();
+      const dt  = (now - lastTime) / 1000;
+      lastTime  = now;
+
+      // Lerp smoothed cursor toward target — ~5 s half-life
+      const lerpK = 1 - Math.pow(0.87, dt);
+      smoothCursor.current.x += (targetCursor.current.x - smoothCursor.current.x) * lerpK;
+      smoothCursor.current.y += (targetCursor.current.y - smoothCursor.current.y) * lerpK;
+
+      gl.uniform1f(uTime, (now - startTime) / 1000);
       gl.uniform2f(uResolution, canvas.width, canvas.height);
+      gl.uniform2f(uCursor, smoothCursor.current.x, smoothCursor.current.y);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
+
       animId = requestAnimationFrame(render);
     }
 
@@ -89,6 +123,8 @@ export default function ShaderBackground() {
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("touchmove", onTouchMove);
       gl.deleteProgram(program);
       gl.deleteBuffer(buf);
     };

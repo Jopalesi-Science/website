@@ -1,16 +1,13 @@
-import type { Metadata } from "next";
-import PageTemplate from "@/components/PageTemplate";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Contact — Jopalesi",
-};
+import PageTemplate from "@/components/PageTemplate";
+import { useI18n }  from "@/lib/i18n";
 
 export default function ContactPage() {
+  const { t } = useI18n();
   return (
-    <PageTemplate title="Contact" code="co">
-      <p>
-        For enquiries, proposals, and correspondence.
-      </p>
+    <PageTemplate title={t.nav.contact} code="contact">
+      <p>{t.contact.intro}</p>
       <p>
         <a
           href="mailto:hello@jopalesi.com"

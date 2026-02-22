@@ -1,12 +1,13 @@
 export interface Route {
-  path: string;
+  path:  string;
+  // Translation key inside t.nav — e.g. "projects" → t.nav.projects
   label: string;
-  code: string;
 }
 
-export const routes: Route[] = [
-  { path: "/", label: "Home", code: "—" },
-  { path: "/pro", label: "Program", code: "pro" },
-  { path: "/au", label: "About", code: "au" },
-  { path: "/co", label: "Contact", code: "co" },
+export const navRoutes: Route[] = [
+  { path: "/projects", label: "projects" },
+  { path: "/people",   label: "people"   },
+  { path: "/contact",  label: "contact"  },
+  { path: "/meetings", label: "meetings" },
+  { path: "/about",    label: "about"    },
 ];
