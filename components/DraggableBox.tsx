@@ -2,20 +2,25 @@
 
 import { useEffect, useRef, useState } from "react";
 import { STICK_COLOR, BG_COLOR } from "@/lib/theme";
-import { useI18n } from "@/lib/i18n";
 
 const DRAG_THRESHOLD = 6;
-const INITIAL = { x: 50, y: 73 };
 
-export default function DraggableTextBox() {
-  const { t }                       = useI18n();
-  const [pos, setPos]               = useState(INITIAL);
-  const [isDragging, setDragging]   = useState(false);
+interface Props {
+  initialX: number;
+  initialY: number;
+  width?: string;
+  children: React.ReactNode;
+}
 
-  const posRef      = useRef(INITIAL);
+export default function DraggableBox({ initialX, initialY, width = "auto", children }: Props) {
+  const [pos, setPos]             = useState({ x: initialX, y: initialY });
+  const [isDragging, setDragging] = useState(false);
+
+  const elRef       = useRef<HTMLDivElement>(null);
+  const posRef      = useRef({ x: initialX, y: initialY });
   const draggingRef = useRef(false);
   const didDrag     = useRef(false);
-  const origin      = useRef({ mx: 0, my: 0, bx: INITIAL.x, by: INITIAL.y });
+  const origin      = useRef({ mx: 0, my: 0, bx: initialX, by: initialY });
 
   function move(x: number, y: number) {
     const nx = Math.max(0, Math.min(100, x));
@@ -90,41 +95,33 @@ export default function DraggableTextBox() {
     };
   }, []);
 
+  // passive:false so preventDefault() is allowed on touch
+  useEffect(() => {
+    const el = elRef.current;
+    if (!el) return;
+    const onTouchStart = (e: TouchEvent) => {
+      e.preventDefault();
+      startDrag(e.touches[0].clientX, e.touches[0].clientY);
+    };
+    el.addEventListener("touchstart", onTouchStart, { passive: false });
+    return () => el.removeEventListener("touchstart", onTouchStart);
+  }, []);
+
   return (
     <div
+      ref={elRef}
       className="fixed z-20 select-none"
       style={{
         left:      `${pos.x}%`,
         top:       `${pos.y}%`,
         transform: "translate(-50%, -50%)",
         cursor:    isDragging ? "grabbing" : "grab",
-        width:     "min(44rem, calc(100vw - 4rem))",
+        width,
       }}
       onMouseDown={(e) => { e.preventDefault(); startDrag(e.clientX, e.clientY); }}
-      onTouchStart={(e) => { e.preventDefault(); startDrag(e.touches[0].clientX, e.touches[0].clientY); }}
     >
-      <div
-        style={{
-          border:     `5px solid ${STICK_COLOR}`,
-          background: BG_COLOR,
-          padding:    "1.4rem 1.8rem",
-        }}
-      >
-        <p
-          style={{
-            fontSize:      "0.92rem",
-            letterSpacing: "0.05em",
-            lineHeight:    1.75,
-            color:         "#e8e3dc",
-            opacity:       0.8,
-            margin:        0,
-            fontWeight:    600,
-            textAlign:     "justify",
-            whiteSpace:    "pre-line",
-          }}
-        >
-          {t.home.description}
-        </p>
+      <div style={{ border: `5px solid ${STICK_COLOR}`, background: BG_COLOR }}>
+        {children}
       </div>
     </div>
   );

@@ -4,30 +4,38 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { STICK_COLOR, BG_COLOR } from "@/lib/theme";
 
-const DRAG_THRESHOLD  = 6;
-const BOTTOM_CENTER   = { x: 50, y: 92 } as const;
+const DRAG_THRESHOLD = 6;
+const BOTTOM_CENTER  = { x: 50, y: 92 };
+const CENTER         = { x: 50, y: 35 };
 const LETTERS = "JOPALESI".split("");
 
 export default function CursorBox() {
   const router   = useRouter();
   const pathname = usePathname();
-  const isHome   = pathname === "/" || pathname === "/maja";
 
-  const [pos, setPos]             = useState({ x: 50, y: 50 });
+  // Only the root landing page keeps the box centred and non-navigable.
+  // /maja and every other route are treated as normal sub-pages.
+  const isLanding = pathname === "/";
+
+  // Always-current ref so event handlers never read a stale closure value.
+  const isLandingRef = useRef(isLanding);
+  isLandingRef.current = isLanding;
+
+  const [pos, setPos]             = useState(CENTER);
   const [isDragging, setDragging] = useState(false);
 
-  const posRef      = useRef({ x: 50, y: 50 });
+  const elRef       = useRef<HTMLDivElement>(null);
+  const posRef      = useRef(CENTER);
   const draggingRef = useRef(false);
   const didDrag     = useRef(false);
-  const origin      = useRef({ mx: 0, my: 0, bx: 50, by: 50 });
+  const origin      = useRef({ mx: 0, my: 0, bx: CENTER.x, by: CENTER.y });
 
-  // Animate to bottom-center when on sub-pages
+  // Animate to bottom-center on all non-landing routes; float back on landing.
   useEffect(() => {
-    if (!isHome) {
-      setPos(BOTTOM_CENTER);
-      posRef.current = { ...BOTTOM_CENTER };
-    }
-  }, [isHome]);
+    const target = isLanding ? CENTER : BOTTOM_CENTER;
+    setPos(target);
+    posRef.current = { ...target };
+  }, [isLanding]);
 
   function move(x: number, y: number) {
     const nx = Math.max(0, Math.min(100, x));
@@ -68,8 +76,7 @@ export default function CursorBox() {
       draggingRef.current = false;
       setDragging(false);
       document.body.style.cursor = "";
-      // On sub-pages a tap (no drag) navigates back to the home page
-      if (!didDrag.current && !isHome) router.push("/maja");
+      if (!didDrag.current && !isLandingRef.current) router.push("/maja");
     };
 
     const onTouchMove = (e: TouchEvent) => {
@@ -90,7 +97,7 @@ export default function CursorBox() {
       if (!draggingRef.current) return;
       draggingRef.current = false;
       setDragging(false);
-      if (!didDrag.current && !isHome) router.push("/maja");
+      if (!didDrag.current && !isLandingRef.current) router.push("/maja");
     };
 
     window.addEventListener("mousemove", onMouseMove);
@@ -103,20 +110,32 @@ export default function CursorBox() {
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("touchend",  onTouchEnd);
     };
-  }, [router, isHome]);
+  }, [router]);
+
+  // Attach touchstart with passive:false so preventDefault() is allowed.
+  useEffect(() => {
+    const el = elRef.current;
+    if (!el) return;
+    const onTouchStart = (e: TouchEvent) => {
+      e.preventDefault();
+      startDrag(e.touches[0].clientX, e.touches[0].clientY);
+    };
+    el.addEventListener("touchstart", onTouchStart, { passive: false });
+    return () => el.removeEventListener("touchstart", onTouchStart);
+  }, []);
 
   return (
     <div
-      className="fixed z-20 select-none"
+      ref={elRef}
+      className="fixed z-40 select-none"
       style={{
         left:       `${pos.x}%`,
         top:        `${pos.y}%`,
         transform:  "translate(-50%, -50%)",
-        cursor:     isHome ? "grab" : "pointer",
+        cursor:     isLanding ? "grab" : "pointer",
         transition: isDragging ? "none" : "left 2s ease-in-out, top 2s ease-in-out",
       }}
       onMouseDown={(e) => { e.preventDefault(); startDrag(e.clientX, e.clientY); }}
-      onTouchStart={(e) => { e.preventDefault(); startDrag(e.touches[0].clientX, e.touches[0].clientY); }}
     >
       <div
         style={{

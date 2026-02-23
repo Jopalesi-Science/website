@@ -9,15 +9,15 @@ const DRAG_THRESHOLD = 6;
 // Language option labels — always shown in the language's own name.
 // This list is independent of the translation system.
 const LANGUAGES = [
-  { code: "en", nativeName: "English"   },
+  { code: "en", nativeName: "English (UK)" },
   { code: "lv", nativeName: "Latviski"  },
   { code: "es", nativeName: "Español"   },
   { code: "de", nativeName: "Deutsch"   },
+  { code: "uk", nativeName: "Українська" },
   { code: "zh", nativeName: "中文"       },
   { code: "ru", nativeName: "Русский"   },
   { code: "ar", nativeName: "العربية"   },
   { code: "ka", nativeName: "ქართული"   },
-  { code: "hy", nativeName: "Հայerene"  },
 ];
 
 // Build dropdown list: all languages except the current one, with regionCode
