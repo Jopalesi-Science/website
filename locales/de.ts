@@ -82,7 +82,7 @@ const de: Translations = {
     blurb: "Beispielprojekte reichen von urbaner und sozialer Modellierung \u00fcber KI-Architektur und Sicherheit bis hin zur kritischen \u00dcberpr\u00fcfung bestehender Forschungsarbeiten.",
     entries: [
       {
-        title: "Interurban pedestrial mobility: A European Comparison",
+        title: "Interurban pedestrial mobility: A European Comparison ",
         body:
           "Pedestrial mobility within the urban infrastructure has been investigated in various contexts and has been linked to various measures of life-quality. " +
           "Here we study the complementary question of the ability to move from urbanisation to urbanisation unmotorised. " +
