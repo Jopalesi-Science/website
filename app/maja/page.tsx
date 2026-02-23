@@ -1,6 +1,11 @@
+"use client";
+
+import { useI18n } from "@/lib/i18n";
+
 export default function MajaPage() {
+  const { t } = useI18n();
   return (
-    <main className="min-h-screen flex flex-col justify-end px-8 pb-16 gap-6">
+    <main className="min-h-screen flex flex-col items-center justify-center gap-6">
       <div
         style={{
           border:    "2px solid #bdb2a3",
@@ -17,16 +22,12 @@ export default function MajaPage() {
             color:         "#bdb2a3",
             opacity:       0.65,
             margin:        0,
+            whiteSpace:    "pre-line",
           }}
         >
-          Curiosity, Inquiry and Critical Exploration are forms of Expression.
-          Jopalesi is a platform to share, develop and realize these expressions.
-          We seek collaborations and we believe in open and accessible data.
+          {t.home.description}
         </p>
       </div>
-      <p className="text-xs tracking-[0.2em] opacity-40 max-w-xs leading-relaxed">
-        A space for things that resist easy categorisation.
-      </p>
     </main>
   );
 }

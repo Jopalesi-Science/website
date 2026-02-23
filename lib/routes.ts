@@ -6,8 +6,7 @@ export interface Route {
 
 export const navRoutes: Route[] = [
   { path: "/projects", label: "projects" },
-  { path: "/people",   label: "people"   },
-  { path: "/contact",  label: "contact"  },
   { path: "/meetings", label: "meetings" },
+  { path: "/contact",  label: "contact"  },
   { path: "/about",    label: "about"    },
 ];

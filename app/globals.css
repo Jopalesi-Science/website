@@ -42,6 +42,27 @@ a {
   color: var(--background);
 }
 
+/* ── Page template fade-in ───────────────────────────────────────────── */
+/* Background fades from transparent → #0a0a0c over 2 s on each page load */
+
+@keyframes pageTemplateFadeIn {
+  from { background-color: transparent; }
+  to   { background-color: #0a0a0c;    }
+}
+
+.page-template-bg {
+  animation: pageTemplateFadeIn 2s ease forwards;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.page-template-fade {
+  animation: overlayFadeIn 2s ease forwards;
+}
+
 /* ── Scrollable content window ───────────────────────────────────────── */
 /* Scrollbar styled as a stick — thick, no rounding, offset from edge.  */
 /* Firefox: thin is the closest available width option.                  */
