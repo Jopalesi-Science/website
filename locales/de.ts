@@ -82,15 +82,18 @@ const de: Translations = {
     blurb: "Beispielprojekte reichen von urbaner und sozialer Modellierung \u00fcber KI-Architektur und Sicherheit bis hin zur kritischen \u00dcberpr\u00fcfung bestehender Forschungsarbeiten.",
     entries: [
       {
-        title: "Interurban pedestrial mobility: A European Comparison ",
+        title: "Zu Fuß zwischen Städten: Eine europäische Mobilitätsstudie",
         body:
-          "Pedestrial mobility within the urban infrastructure has been investigated in various contexts and has been linked to various measures of life-quality. " +
-          "Here we study the complementary question of the ability to move from urbanisation to urbanisation unmotorised. " +
-          "We employ satellite and national data to compare several mobility metrics in the European context.",
+          "Mobilität innerhalb von Städten — insbesondere zu Fuß — wurde in verschiedenen Kontexten eingehend untersucht und mit Gesundheit, Nachhaltigkeit und Lebensqualität in Verbindung gebracht (so zeigen etwa aktuelle Arbeiten in Nature Cities, wie Fußgängerinfrastruktur das städtische Wohlbefinden beeinflusst).\n\n" +
+          "Weitaus weniger Aufmerksamkeit wurde bisher einer komplementären Frage gewidmet: Wie einfach ist es, ohne motorisierten Transport zwischen Städten zu reisen? Sind wir auf das Auto angewiesen? Wie häufig sind solche nicht-motorisierten Fahrten zwischen Städten überhaupt?\n\n" +
+          "In diesem Projekt untersuchen wir die Mobilität zwischen Städten in ganz Europa. Mithilfe von Satellitendaten und nationalen Mobilitätsdatenbanken analysieren wir, wie gut Städte für Fußgänger und andere nicht-motorisierte Reisende miteinander verbunden sind. Durch den Vergleich verschiedener Regionen möchten wir besser verstehen, wie Infrastruktur, Geographie und Politik die Erreichbarkeit zwischen Städten prägen.",
       },
       {
-        title: "Scaling law transitions in a 1-dimensional SIS model.",
-        body:  "A case study of the SIS-model on the periodic 1-dimensional chain. We study scaling laws as N\u2192\u221e.",
+        title: "Plötzliche Systemveränderungen mit einfachen Modellen verstehen",
+        body:
+          "Viele Systeme in Natur und Gesellschaft können sich plötzlich und dramatisch verändern — etwa die rasche Ausbreitung einer Krankheit oder ein abrupter Wandel im kollektiven Verhalten. Wissenschaftler beschreiben solche Umschläge als Phasenübergänge.\n\n" +
+          "Diese Übergänge werden meist in sehr großen, idealisierten Systemen untersucht. In diesem Projekt erforschen wir stattdessen, wie solche Veränderungen in kleineren, strukturierten Systemen entstehen, die realen Netzwerken ähnlicher sind.\n\n" +
+          "Dazu verwenden wir vereinfachte Spielzeugmodelle — darunter gitterbasierte Epidemiemodelle, in denen Individuen zwischen dem empfänglichen und dem infizierten Zustand wechseln können. Indem wir diese kontrollierten Systeme studieren, möchten wir besser verstehen, wie großskalige Verhaltensveränderungen aus einfachen lokalen Wechselwirkungen entstehen.",
       },
     ],
   },

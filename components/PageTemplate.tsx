@@ -40,9 +40,11 @@ export default function PageTemplate({ title, children }: PageTemplateProps) {
         {children && (
           <div
             style={{
-              fontSize:   "0.8rem",
-              lineHeight: 1.8,
-              color:      TEXT_COLOR,
+              fontSize:     "0.8rem",
+              lineHeight:   1.8,
+              color:        TEXT_COLOR,
+              textAlign:    "justify",
+              paddingRight: "1.5rem",
             }}
             className="space-y-4"
           >

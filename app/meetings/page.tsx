@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import PageTemplate  from "@/components/PageTemplate";
 import { useI18n }   from "@/lib/i18n";
 import { TEXT_COLOR } from "@/lib/theme";
@@ -17,13 +18,21 @@ const prose: React.CSSProperties = {
 export default function MeetingsPage() {
   const { t } = useI18n();
   const m = t.meetings;
+  const [narrow, setNarrow] = useState(false);
+
+  useEffect(() => {
+    const update = () => setNarrow(window.innerWidth < 640);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   return (
     <PageTemplate title={t.nav.meetings}>
-      <div style={{ display: "flex", gap: "3rem", alignItems: "flex-start" }}>
+      <div style={{ display: "flex", flexDirection: narrow ? "column" : "row", gap: narrow ? "1.5rem" : "3rem", alignItems: "flex-start" }}>
 
-        {/* ── Left: description ── */}
-        <div style={{ flex: "0 0 22rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+        {/* ── Left / top: description ── */}
+        <div style={{ flex: narrow ? "none" : "0 0 22rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           <p style={prose}>
             {m.intro.split("RAA.SPACE")[0]}
             <a
@@ -52,8 +61,8 @@ export default function MeetingsPage() {
           <p style={prose}>{m.langNote}</p>
         </div>
 
-        {/* ── Right: meeting cards — paddingRight keeps cards off the edge ── */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "0.6rem", minWidth: 0, paddingRight: "2.5rem" }}>
+        {/* ── Right / below: meeting cards ── */}
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "0.6rem", minWidth: 0 }}>
           {m.entries.map((entry, i) => (
             <div
               key={i}

@@ -9,10 +9,11 @@ interface Props {
   initialX: number;
   initialY: number;
   width?: string;
+  onTap?: () => void;
   children: React.ReactNode;
 }
 
-export default function DraggableBox({ initialX, initialY, width = "auto", children }: Props) {
+export default function DraggableBox({ initialX, initialY, width = "auto", onTap, children }: Props) {
   const [pos, setPos]             = useState({ x: initialX, y: initialY });
   const [isDragging, setDragging] = useState(false);
 
@@ -21,6 +22,8 @@ export default function DraggableBox({ initialX, initialY, width = "auto", child
   const draggingRef = useRef(false);
   const didDrag     = useRef(false);
   const origin      = useRef({ mx: 0, my: 0, bx: initialX, by: initialY });
+  const onTapRef    = useRef(onTap);
+  onTapRef.current  = onTap;
 
   function move(x: number, y: number) {
     const nx = Math.max(0, Math.min(100, x));
@@ -61,6 +64,7 @@ export default function DraggableBox({ initialX, initialY, width = "auto", child
       draggingRef.current = false;
       setDragging(false);
       document.body.style.cursor = "";
+      if (!didDrag.current) onTapRef.current?.();
     };
 
     const onTouchMove = (e: TouchEvent) => {
@@ -81,6 +85,7 @@ export default function DraggableBox({ initialX, initialY, width = "auto", child
       if (!draggingRef.current) return;
       draggingRef.current = false;
       setDragging(false);
+      if (!didDrag.current) onTapRef.current?.();
     };
 
     window.addEventListener("mousemove", onMouseMove);
@@ -95,12 +100,15 @@ export default function DraggableBox({ initialX, initialY, width = "auto", child
     };
   }, []);
 
-  // passive:false so preventDefault() is allowed on touch
+  // passive:false so preventDefault() is allowed on touch.
+  // Skip preventDefault when the touch target is a link or button so that
+  // native tap-to-navigate still works for interactive children.
   useEffect(() => {
     const el = elRef.current;
     if (!el) return;
     const onTouchStart = (e: TouchEvent) => {
-      e.preventDefault();
+      const target = e.target as HTMLElement;
+      if (!target.closest("a, button")) e.preventDefault();
       startDrag(e.touches[0].clientX, e.touches[0].clientY);
     };
     el.addEventListener("touchstart", onTouchStart, { passive: false });

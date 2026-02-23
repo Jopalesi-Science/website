@@ -82,15 +82,18 @@ const es: Translations = {
     blurb: "Los ejemplos de proyectos van desde la modelizaci\u00f3n urbana y social, pasando por la arquitectura de IA y la seguridad, hasta el an\u00e1lisis cr\u00edtico de investigaciones existentes.",
     entries: [
       {
-        title: "Interurban pedestrial mobility: A European Comparison",
+        title: "Caminar entre ciudades: un estudio europeo de movilidad",
         body:
-          "Pedestrial mobility within the urban infrastructure has been investigated in various contexts and has been linked to various measures of life-quality. " +
-          "Here we study the complementary question of the ability to move from urbanisation to urbanisation unmotorised. " +
-          "We employ satellite and national data to compare several mobility metrics in the European context.",
+          "La movilidad dentro de las ciudades — especialmente a pie — ha sido ampliamente estudiada y se ha demostrado que influye en la salud, la sostenibilidad y la calidad de vida en general (por ejemplo, trabajos recientes publicados en Nature Cities destacan cómo la infraestructura peatonal determina el bienestar urbano).\n\n" +
+          "Sin embargo, se ha prestado mucha menos atención a una pregunta complementaria: ¿qué tan fácil es viajar entre ciudades sin utilizar transporte motorizado? ¿Estamos atrapados en la dependencia del vehículo? ¿Con qué frecuencia se realizan esos desplazamientos interurbanos no motorizados?\n\n" +
+          "En este proyecto estudiamos la movilidad entre áreas urbanas en toda Europa. Mediante datos satelitales y bases de datos nacionales de movilidad, analizamos qué tan bien conectadas están las ciudades para peatones y otros viajeros no motorizados. Al comparar distintas regiones, buscamos comprender mejor cómo la infraestructura, la geografía y las políticas públicas determinan la accesibilidad interurbana.",
       },
       {
-        title: "Scaling law transitions in a 1-dimensional SIS model.",
-        body:  "A case study of the SIS-model on the periodic 1-dimensional chain. We study scaling laws as N\u2192\u221e.",
+        title: "Comprender los cambios bruscos en sistemas mediante modelos simples",
+        body:
+          "Muchos sistemas en la naturaleza y en la sociedad pueden cambiar de forma súbita y drástica — por ejemplo, la propagación rápida de una enfermedad o un cambio repentino en el comportamiento colectivo. Los científicos describen estos cambios como transiciones de fase.\n\n" +
+          "Estas transiciones suelen estudiarse en sistemas enormes e idealizados. En este proyecto investigamos, en cambio, cómo emergen dichos cambios en sistemas más pequeños y estructurados, que se asemejan más a las redes del mundo real.\n\n" +
+          "Para explorar esto utilizamos modelos de juguete simplificados — entre ellos, modelos epidémicos en malla donde los individuos pueden pasar entre los estados susceptible e infectado. Al estudiar estos sistemas controlados, buscamos comprender mejor cómo surgen los cambios de comportamiento a gran escala a partir de interacciones locales simples.",
       },
     ],
   },

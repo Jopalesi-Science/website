@@ -80,15 +80,25 @@ const en = {
     blurb: "Examples of projects range from urban and social modelling via AI architecture and security all the way to poking holes into existing research.",
     entries: [
       {
-        title: "Interurban pedestrial mobility: A European Comparison",
+        title: "Walking Between Cities: A European Mobility Study",
         body:
-          "Pedestrial mobility within the urban infrastructure has been investigated in various contexts and has been linked to various measures of life-quality. " +
-          "Here we study the complementary question of the ability to move from urbanisation to urbanisation unmotorised. " +
-          "We employ satellite and national data to compare several mobility metrics in the European context.",
+          "Mobility inside cities \u2014 especially walking \u2014 has been widely studied and shown to influence health, sustainability, and overall quality of life " +
+          "(for example, recent work published in Nature Cities highlights how pedestrian infrastructure shapes urban wellbeing).\n\n" +
+          "However, much less attention has been given to a complementary question: How easy is it to travel between cities with and without using motorised transport? " +
+          "Are we locked in? How frequent are such unmotorized interurban trips?\n\n" +
+          "In this project, we study mobility between urban areas across Europe. Using satellite data and national mobility databases, " +
+          "we analyse how connected cities are for pedestrians and other non-motorised travellers. " +
+          "By comparing different regions, we aim to better understand how infrastructure, geography, and policy shape interurban accessibility.",
       },
       {
-        title: "Scaling law transitions in a 1-dimensional SIS model.",
-        body:  "A case study of the SIS-model on the periodic 1-dimensional chain. We study scaling laws as N\u2192\u221e.",
+        title: "Understanding Sudden System Changes Using Simple Models",
+        body:
+          "Many systems in nature and society can change suddenly and dramatically \u2014 for example, the rapid spread of a disease or a sudden shift in collective behaviour. " +
+          "Scientists describe such shifts as phase transitions.\n\n" +
+          "These transitions are often studied in extremely large, idealised systems. " +
+          "In this project, we instead investigate how such changes emerge in smaller, structured systems that more closely resemble real-world networks.\n\n" +
+          "To explore this, we use simplified \u201ctoy models\u201d \u2014 including grid-based epidemic models where individuals can move between being susceptible and infected. " +
+          "By studying these controlled systems, we aim to better understand how large-scale behavioural changes arise from simple local interactions.",
       },
     ],
   },
