@@ -22,6 +22,8 @@ export default function DraggableBox({ initialX, initialY, width = "auto", onTap
   const draggingRef = useRef(false);
   const didDrag     = useRef(false);
   const origin      = useRef({ mx: 0, my: 0, bx: initialX, by: initialY });
+  const onTapRef    = useRef(onTap);
+  onTapRef.current  = onTap;
 
   function move(x: number, y: number) {
     const nx = Math.max(0, Math.min(100, x));
@@ -62,7 +64,7 @@ export default function DraggableBox({ initialX, initialY, width = "auto", onTap
       draggingRef.current = false;
       setDragging(false);
       document.body.style.cursor = "";
-      if (!didDrag.current) onTap?.();
+      if (!didDrag.current) onTapRef.current?.();
     };
 
     const onTouchMove = (e: TouchEvent) => {
@@ -83,7 +85,7 @@ export default function DraggableBox({ initialX, initialY, width = "auto", onTap
       if (!draggingRef.current) return;
       draggingRef.current = false;
       setDragging(false);
-      if (!didDrag.current) onTap?.();
+      if (!didDrag.current) onTapRef.current?.();
     };
 
     window.addEventListener("mousemove", onMouseMove);
