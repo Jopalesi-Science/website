@@ -82,15 +82,18 @@ const lv: Translations = {
     blurb: "Projektu piem\u0113ri aptver pils\u0113tu un soci\u0101lo model\u0113\u0161anu, m\u0101ks\u013c\u012bg\u0101 intelekta arhitekt\u016bru un kiberdro\u0161\u012bbu l\u012bdz pat eso\u0161o p\u0113t\u012bjumu kritis kai anal\u012bzei.",
     entries: [
       {
-        title: "Interurban pedestrial mobility: A European Comparison",
+        title: "Staigāšana starp pilsētām: Eiropas mobilitātes pētījums",
         body:
-          "Pedestrial mobility within the urban infrastructure has been investigated in various contexts and has been linked to various measures of life-quality. " +
-          "Here we study the complementary question of the ability to move from urbanisation to urbanisation unmotorised. " +
-          "We employ satellite and national data to compare several mobility metrics in the European context.",
+          "Mobilitāte pilsētās — jo īpaši kāšana — ir plaši pētīta un atzīta par nozīmīgu veselībai, ilgtspējai un dzīves kvalitātei kopumā (piemēram, nesenie pētījumi žurnālā Nature Cities apliecina, kā gājēju infrastruktūra ietekmē pilsētvides labklājību).\n\n" +
+          "Taču krietni mazāk uzmanības ir veltīts papildinošam jautājumam: cik viegli ir ceļot starp pilsētām bez mehāniskā transporta? Vai esam no tā atkarīgi? Cik bieži notiek šādi nemotorizēti starppilsētu ceļojumi?\n\n" +
+          "Šajā projektā mēs pētām mobilitāti starp pilsētām visā Eiropā. Izmantojot satelītdatus un nacionālās mobilitātes datu bāzes, analizējam, cik labi pilsētas ir savienotas gājējiem un citiem nemotorizētajiem ceļotājiem. Salīdzinot dažādus reģionus, cenšamies labāk izprast, kā infrastruktūra, ģeogrāfija un politika veido starppilsētu pieejamību.",
       },
       {
-        title: "Scaling law transitions in a 1-dimensional SIS model.",
-        body:  "A case study of the SIS-model on the periodic 1-dimensional chain. We study scaling laws as N\u2192\u221e.",
+        title: "Sistēmu pēkšņo izmaiņu izpratne ar vienkāršu modeļu palīdzību",
+        body:
+          "Daudzas sistēmas dabā un sabiedrībā var mainīties pēkšņi un dramatiski — piemēram, slimības strauja izplatīšanās vai pēkšņas kolektīvas uzvedības maiņa. Zinātnieki šādas pārmaiņas apraksta kā fāžu pārejas.\n\n" +
+          "Šīs pārejas parasti tiek pētītas ārkārtīgi lielās, idealizētās sistēmās. Šajā projektā mēs tā vietā pētām, kā šādas izmaiņas rodas mazākās, strukturētās sistēmās, kas tuvāk atgādina reālās pasaules tīklus.\n\n" +
+          "Izpētei izmantojam vienkāršotus \"rotaļu modeļus\" — tostarp režģveida epidēmijas modeļus, kuros indivīdi var pārvietoties starp jutīgiem un inficētiem stāvokļiem. Pētot šīs kontrolētās sistēmas, cenšamies labāk izprast, kā liela mēroga uzvedības izmaiņas rodas no vienkāršām lokālām mijiedarbībām.",
       },
     ],
   },

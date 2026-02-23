@@ -60,6 +60,8 @@ export default function LanguageButton({ initialX, initialY }: Props) {
   const [hovered, setHovered]       = useState(false);
   const [hoveredOpt, setHoveredOpt] = useState<string | null>(null);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const dropdownRef  = useRef<HTMLDivElement>(null);
   const posRef   = useRef({ x: initialX, y: initialY });
   const dragging = useRef(false);
   const didDrag  = useRef(false);
@@ -142,6 +144,21 @@ export default function LanguageButton({ initialX, initialY }: Props) {
     };
   }, []);
 
+  // passive: false so e.preventDefault() is allowed on touchstart.
+  // Skip preventDefault (and drag) when the touch is on a dropdown option so
+  // the browser's synthetic click fires normally and handleSelect is called.
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onTouchStart = (e: TouchEvent) => {
+      if (dropdownRef.current?.contains(e.target as Node)) return;
+      e.preventDefault();
+      startDrag(e.touches[0].clientX, e.touches[0].clientY);
+    };
+    el.addEventListener("touchstart", onTouchStart, { passive: false });
+    return () => el.removeEventListener("touchstart", onTouchStart);
+  }, []);
+
   function handleSelect(code: string) {
     setLang(code);
     setIsOpen(false);
@@ -153,6 +170,7 @@ export default function LanguageButton({ initialX, initialY }: Props) {
 
   return (
     <div
+      ref={containerRef}
       className="fixed z-30 select-none"
       style={{
         left:      `${pos.x}%`,
@@ -163,9 +181,6 @@ export default function LanguageButton({ initialX, initialY }: Props) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseDown={(e) => { e.preventDefault(); startDrag(e.clientX, e.clientY); }}
-      // e.preventDefault() stops mobile browsers generating a synthetic mousedown
-      // after touchend, which would otherwise toggle the dropdown twice.
-      onTouchStart={(e) => { e.preventDefault(); startDrag(e.touches[0].clientX, e.touches[0].clientY); }}
     >
       <div style={{ display: "inline-block", position: "relative" }}>
 
@@ -202,6 +217,7 @@ export default function LanguageButton({ initialX, initialY }: Props) {
 
         {/* ── Dropdown — absolutely positioned, doesn't affect button height ── */}
         <div
+          ref={dropdownRef}
           style={{
             position:      "absolute",
             top:           "100%",

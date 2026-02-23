@@ -12,20 +12,21 @@ type Layout = "desktop" | "tablet" | "mobile";
 
 // Initial positions per layout — Language is always the rightmost element.
 const INIT: Record<Layout, { nav: { x: number; y: number }[]; lang: { x: number; y: number } }> = {
-  // ≥ 1000 px: single row, 4 nav left + language right (16 % steps)
+  // ≥ 1000 px: single row, 4 nav left + language right
   desktop: {
-    nav:  [{ x: 8, y: 5 }, { x: 24, y: 5 }, { x: 40, y: 5 }, { x: 56, y: 5 }],
-    lang: { x: 90, y: 5 },
+    nav:  [{ x: 8, y: 4 }, { x: 24, y: 4 }, { x: 40, y: 4 }, { x: 56, y: 4 }],
+    lang: { x: 90, y: 4 },
   },
   // 480–999 px: row 1 — first 3 nav; row 2 — 4th nav + language
   tablet: {
-    nav:  [{ x: 13, y: 7 }, { x: 45, y: 7 }, { x: 77, y: 7 }, { x: 25, y: 14 }],
-    lang: { x: 65, y: 14 },
+    nav:  [{ x: 13, y: 5 }, { x: 45, y: 5 }, { x: 77, y: 5 }, { x: 25, y: 12 }],
+    lang: { x: 65, y: 12 },
   },
-  // < 480 px: 2 × 2 nav grid; language pinned top-right
+  // < 480 px: row 1 — nav[0] + language; row 2 — nav[1] + nav[2] + nav[3]
+  // Only 1 nav beside language (two ~124 px nav + 152 px lang won't fit in 375 px)
   mobile: {
-    nav:  [{ x: 22, y: 9 }, { x: 66, y: 9 }, { x: 22, y: 17 }, { x: 66, y: 17 }],
-    lang: { x: 76, y: 5 },
+    nav:  [{ x: 19, y: 4 }, { x: 19, y: 10 }, { x: 52, y: 10 }, { x: 81, y: 10 }],
+    lang: { x: 80, y: 4 },
   },
 };
 

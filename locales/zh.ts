@@ -82,15 +82,18 @@ const zh: Translations = {
     blurb: "项目范例涵盖城市与社会建模、人工智能架构与安全，乃至对现有研究的批判性审视。",
     entries: [
       {
-        title: "Interurban pedestrial mobility: A European Comparison",
+        title: "在城市之间步行：欧洲出行方式研究",
         body:
-          "Pedestrial mobility within the urban infrastructure has been investigated in various contexts and has been linked to various measures of life-quality. " +
-          "Here we study the complementary question of the ability to move from urbanisation to urbanisation unmotorised. " +
-          "We employ satellite and national data to compare several mobility metrics in the European context.",
+          "城市内部的出行方式——尤其是步行——已在多种背景下得到广泛研究，并被证明对健康、可持续发展和整体生活质量具有重要影响（例如，近期发表于《自然·城市》的研究揭示了步行基础设施如何塑造城市居民的福祉）。\n\n" +
+          "然而，一个互补性问题却鲜少受到关注：在不使用机动交通工具的情况下，城市之间的出行有多便捷？我们是否已被机动交通所锁定？此类非机动的城际出行究竟有多普遍？\n\n" +
+          "在本项目中，我们研究欧洲各城市地区之间的出行状况。借助卫星数据与各国出行数据库，我们分析城市之间对步行者及其他非机动出行者的连通性。通过对不同地区的比较，我们旨在更深入地理解基础设施、地理条件与政策如何共同塑造城际可达性。",
       },
       {
-        title: "Scaling law transitions in a 1-dimensional SIS model.",
-        body:  "A case study of the SIS-model on the periodic 1-dimensional chain. We study scaling laws as N\u2192\u221e.",
+        title: "用简单模型理解系统的突变",
+        body:
+          "自然界和社会中的许多系统都可能发生突然而剧烈的变化——例如疾病的迅速蔓延，或集体行为的骤然转变。科学家将这类突变描述为相变。\n\n" +
+          "相变通常在极大规模的理想化系统中加以研究。而在本项目中，我们转而探讨这类变化如何在规模较小、结构更具体的系统中产生——这些系统与现实网络更为接近。\n\n" +
+          "为此，我们使用简化的"玩具模型"进行探索，其中包括基于网格的流行病模型——在该模型中，个体可以在易感状态与感染状态之间相互转换。通过研究这些可控系统，我们希望更好地理解宏观尺度上的行为变化是如何由简单的局部相互作用涌现出来的。",
       },
     ],
   },
