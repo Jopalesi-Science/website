@@ -54,7 +54,14 @@ const ka: Translations = {
         time:     "18:00 – 20:00",
         duration: "2h",
         body:     "მოკლე პრეზენტაცია. დისკუსიების რაუნდი მონაწილეთა მიერ შემოტანილ თემებზე.",
-        recap:    "/meetings/17-03-2026",
+        recap:     "/meetings/17-03-2026",
+        thumbnail: "/meetings/17-03-2026/gathering.jpg",
+        bullets:   [
+          "Introductions.",
+          "Cameras in the wild + Raspberry Pi.",
+          "Galaxy collisions & space live-cams.",
+          "Ramanujan.",
+        ],
       },
       {
         title:    "ყოველკვირეული შეხვედრა",
@@ -62,6 +69,9 @@ const ka: Translations = {
         time:     "18:00 – 20:00",
         duration: "2h",
         body:     "მოკლე პრეზენტაცია. დისკუსიების რაუნდი მონაწილეთა მიერ შემოტანილ თემებზე.",
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
       },
       {
         title:    "ყოველკვირეული შეხვედრა",
@@ -69,6 +79,10 @@ const ka: Translations = {
         time:     "18:00 – 20:00",
         duration: "2h",
         body:     "მოკლე პრეზენტაცია. დისკუსიების რაუნდი მონაწილეთა მიერ შემოტანილ თემებზე.",
+
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
       },
     ],
   },

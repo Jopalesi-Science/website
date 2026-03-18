@@ -26,9 +26,9 @@ const PARTICIPANTS = ["Daniels", "Romans", "Ārands", "Jana", "Leo"];
 const TOPICS = [
   "Introduced ourselves — first meeting of the group.",
   "Met at the Mātes Nātres café inside RAA Space, Matīsa iela 8, Rīga.",
-  "Discussed installing cameras in the wild: using Raspberry Pi to process data on-site and transmit it remotely, and to control the camera.",
-  "Discussed collisions of galaxies and space live-cams — observing large-scale cosmic events in near real-time.",
-  "Briefly talked about Ramanujan and the remarkable nature of his mathematical intuition.",
+  "Discussed installing cameras in the wild with Raspberry Pi: on-site processing, remote transmission, and camera control.",
+  "Discussed collisions of galaxies and space live-cams.",
+  "Briefly talked about Ramanujan.",
 ];
 
 function SectionLabel({ n, children }: { n: number; children: React.ReactNode }) {

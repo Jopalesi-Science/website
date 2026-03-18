@@ -54,7 +54,14 @@ const lv: Translations = {
         time:     "18:00 \u2013 20:00",
         duration: "2h",
         body:     "\u012asa prez ent\u0101cija. Diskusijas k\u0101rta par dal\u012bbn ieku iero sin\u0101taj\u0101m t\u0113m\u0101m.",
-        recap:    "/meetings/17-03-2026",
+        recap:     "/meetings/17-03-2026",
+        thumbnail: "/meetings/17-03-2026/gathering.jpg",
+        bullets:   [
+          "Introductions.",
+          "Cameras in the wild + Raspberry Pi.",
+          "Galaxy collisions & space live-cams.",
+          "Ramanujan.",
+        ],
       },
       {
         title:    "Ned\u0113\u013cas tik\u0161an\u0101s",
@@ -62,6 +69,9 @@ const lv: Translations = {
         time:     "18:00 \u2013 20:00",
         duration: "2h",
         body:     "\u012asa prez ent\u0101cija. Diskusijas k\u0101rta par dal\u012bbn ieku iero sin\u0101taj\u0101m t\u0113m\u0101m.",
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
       },
       {
         title:    "Ned\u0113\u013cas tik\u0161an\u0101s",
@@ -69,6 +79,10 @@ const lv: Translations = {
         time:     "18:00 \u2013 20:00",
         duration: "2h",
         body:     "\u012asa prez ent\u0101cija. Diskusijas k\u0101rta par dal\u012bbn ieku iero sin\u0101taj\u0101m t\u0113m\u0101m.",
+
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
       },
     ],
   },

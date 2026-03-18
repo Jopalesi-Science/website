@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image         from "next/image";
 import Link          from "next/link";
 import PageTemplate  from "@/components/PageTemplate";
 import { useI18n }   from "@/lib/i18n";
-import { TEXT_COLOR } from "@/lib/theme";
+import { TEXT_COLOR, ACTIVE_COLOR } from "@/lib/theme";
 
 const TG_URL = "https://t.me/+ePj5WYsIPyw2Mzk0";
 
@@ -72,7 +73,7 @@ export default function MeetingsPage() {
                 padding:    "0.9rem 1.2rem 1rem",
               }}
             >
-              {/* header row */}
+              {/* ── header row ── */}
               <div
                 style={{
                   display:        "flex",
@@ -85,17 +86,33 @@ export default function MeetingsPage() {
                   borderBottom:   "1.5px solid #0a0a0c",
                 }}
               >
-                <span
-                  style={{
-                    color:         "#0a0a0c",
-                    fontSize:      "0.75rem",
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                    fontWeight:    700,
-                  }}
-                >
-                  {entry.title}
-                </span>
+                {entry.recap ? (
+                  <Link
+                    href={entry.recap}
+                    style={{
+                      color:          "#0a0a0c",
+                      fontSize:       "0.75rem",
+                      letterSpacing:  "0.18em",
+                      textTransform:  "uppercase",
+                      fontWeight:     700,
+                      textDecoration: "none",
+                    }}
+                  >
+                    {entry.title}
+                  </Link>
+                ) : (
+                  <span
+                    style={{
+                      color:         "#0a0a0c",
+                      fontSize:      "0.75rem",
+                      letterSpacing: "0.18em",
+                      textTransform: "uppercase",
+                      fontWeight:    700,
+                    }}
+                  >
+                    {entry.title}
+                  </span>
+                )}
                 <span
                   style={{
                     color:         "#0a0a0c",
@@ -110,23 +127,53 @@ export default function MeetingsPage() {
                 </span>
               </div>
 
-              {/* body */}
-              <p
-                style={{
-                  color:         "#0a0a0c",
-                  fontSize:      "0.75rem",
-                  letterSpacing: "0.04em",
-                  lineHeight:    1.75,
-                  fontWeight:    600,
-                  opacity:       0.72,
-                  margin:        "0 0 0.55rem",
-                }}
-              >
-                {entry.body}
-              </p>
+              {/* ── body row: text + thumbnail ── */}
+              <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start", marginBottom: "0.7rem" }}>
 
-              {/* footer row: location + recap link */}
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.3rem" }}>
+                {/* text side */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p
+                    style={{
+                      color:         "#0a0a0c",
+                      fontSize:      "0.75rem",
+                      letterSpacing: "0.04em",
+                      lineHeight:    1.75,
+                      fontWeight:    600,
+                      opacity:       0.72,
+                      margin:        "0 0 0.5rem",
+                    }}
+                  >
+                    {entry.body}
+                  </p>
+
+                  {entry.bullets.length > 0 && (
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.2rem" }}>
+                      {entry.bullets.map((b, j) => (
+                        <li key={j} style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start" }}>
+                          <span style={{ color: "#0a0a0c", fontSize: "0.68rem", opacity: 0.4, flexShrink: 0, lineHeight: 1.75 }}>—</span>
+                          <span style={{ color: "#0a0a0c", fontSize: "0.68rem", letterSpacing: "0.04em", lineHeight: 1.75, fontWeight: 600, opacity: 0.65 }}>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                {/* thumbnail */}
+                {entry.thumbnail && (
+                  <div style={{ flexShrink: 0, width: "7rem" }}>
+                    <Image
+                      src={entry.thumbnail}
+                      alt={entry.date}
+                      width={200}
+                      height={133}
+                      style={{ width: "100%", height: "auto", display: "block" }}
+                    />
+                  </div>
+                )}
+              </div>
+
+              {/* ── footer row ── */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.4rem" }}>
                 <p style={{ margin: 0, fontSize: "0.68rem", letterSpacing: "0.08em", color: "#0a0a0c", opacity: 0.5, fontWeight: 600 }}>
                   @{" "}
                   <a
@@ -141,7 +188,16 @@ export default function MeetingsPage() {
                 {entry.recap && (
                   <Link
                     href={entry.recap}
-                    style={{ fontSize: "0.68rem", letterSpacing: "0.08em", color: "#0a0a0c", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: "3px" }}
+                    style={{
+                      border:        `2px solid ${ACTIVE_COLOR}`,
+                      color:         "#0a0a0c",
+                      fontSize:      "0.72rem",
+                      letterSpacing: "0.14em",
+                      fontWeight:    700,
+                      textTransform: "uppercase",
+                      textDecoration:"none",
+                      padding:       "0.2rem 0.7rem",
+                    }}
                   >
                     Recap ↗
                   </Link>

@@ -54,7 +54,14 @@ const uk: Translations = {
         time:     "18:00 – 20:00",
         duration: "2h",
         body:     "Коротка презентація. Дискусійний круглий стіл з тем, запропонованих учасниками.",
-        recap:    "/meetings/17-03-2026",
+        recap:     "/meetings/17-03-2026",
+        thumbnail: "/meetings/17-03-2026/gathering.jpg",
+        bullets:   [
+          "Introductions.",
+          "Cameras in the wild + Raspberry Pi.",
+          "Galaxy collisions & space live-cams.",
+          "Ramanujan.",
+        ],
       },
       {
         title:    "Щотижнева зустріч",
@@ -62,6 +69,9 @@ const uk: Translations = {
         time:     "18:00 – 20:00",
         duration: "2h",
         body:     "Коротка презентація. Дискусійний круглий стіл з тем, запропонованих учасниками.",
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
       },
       {
         title:    "Щотижнева зустріч",
@@ -69,6 +79,10 @@ const uk: Translations = {
         time:     "18:00 – 20:00",
         duration: "2h",
         body:     "Коротка презентація. Дискусійний круглий стіл з тем, запропонованих учасниками.",
+
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
       },
     ],
   },

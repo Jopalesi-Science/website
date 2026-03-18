@@ -54,7 +54,14 @@ const zh: Translations = {
         time:     "18:00 – 20:00",
         duration: "2h",
         body:     "简短演示。就参与者提出的议题进行讨论。",
-        recap:    "/meetings/17-03-2026",
+        recap:     "/meetings/17-03-2026",
+        thumbnail: "/meetings/17-03-2026/gathering.jpg",
+        bullets:   [
+          "Introductions.",
+          "Cameras in the wild + Raspberry Pi.",
+          "Galaxy collisions & space live-cams.",
+          "Ramanujan.",
+        ],
       },
       {
         title:    "每周例会",
@@ -62,6 +69,9 @@ const zh: Translations = {
         time:     "18:00 – 20:00",
         duration: "2h",
         body:     "简短演示。就参与者提出的议题进行讨论。",
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
       },
       {
         title:    "每周例会",
@@ -69,6 +79,10 @@ const zh: Translations = {
         time:     "18:00 – 20:00",
         duration: "2h",
         body:     "简短演示。就参与者提出的议题进行讨论。",
+
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
       },
     ],
   },
