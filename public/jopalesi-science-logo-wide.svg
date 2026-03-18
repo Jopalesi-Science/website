@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Jopalesi Science logo — wide version
+  Icon (80×80) on left; JOPALESI over SCIENCE on right, same visual width.
+  lengthAdjust="spacing" → only gaps are stretched, glyphs stay undistorted.
+  ViewBox: 0 0 300 80
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+
+  <!-- ── Pixel-art icon (original 16×16, scaled ×5 → 80×80) ── -->
+  <rect width="80" height="80" fill="#0a0a0c"/>
+  <!-- tall stick -->
+  <rect x="5"  y="15" width="10" height="65" fill="#bdb2a3"/>
+  <!-- short-top stick -->
+  <rect x="25" y="0"  width="10" height="40" fill="#bdb2a3"/>
+  <!-- medium stick -->
+  <rect x="45" y="30" width="10" height="50" fill="#bdb2a3"/>
+  <!-- split stick — top half -->
+  <rect x="65" y="0"  width="10" height="35" fill="#bdb2a3"/>
+  <!-- split stick — bottom half -->
+  <rect x="65" y="45" width="10" height="35" fill="#bdb2a3"/>
+
+  <!-- ── Text block: x=100, textLength=196 fills remaining 300-100-4=196 ── -->
+
+  <!-- JOPALESI — upper line (8 chars × ~12u glyph width = 96u → fits in 196u) -->
+  <text x="100" y="36"
+    fill="#bdb2a3"
+    font-family="'Courier New', monospace"
+    font-size="20"
+    font-weight="700"
+    text-anchor="start"
+    textLength="196"
+    lengthAdjust="spacing">JOPALESI</text>
+
+  <!-- SCIENCE — same textLength, same visual width, no glyph distortion -->
+  <text x="100" y="67"
+    fill="#bdb2a3"
+    font-family="'Courier New', monospace"
+    font-size="20"
+    font-weight="700"
+    text-anchor="start"
+    textLength="196"
+    lengthAdjust="spacing">SCIENCE</text>
+
+</svg>

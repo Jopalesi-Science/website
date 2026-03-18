@@ -49,18 +49,12 @@ const es: Translations = {
     langNote: "Las reuniones se celebran en let\u00f3n e ingl\u00e9s cuando hay participantes que no hablan let\u00f3n.",
     entries: [
       {
-        title:    "Reuni\u00f3n Introductoria",
-        date:     "10 de marzo de 2026",
-        time:     "18:00 \u2013 20:00",
-        duration: "2h",
-        body:     "Reuni\u00f3n introductoria. Presentaci\u00f3n breve. Conocernos entre nosotros. Debate sobre los intereses de investigaci\u00f3n de los participantes.",
-      },
-      {
         title:    "Reuni\u00f3n Semanal",
         date:     "17 de marzo de 2026",
         time:     "18:00 \u2013 20:00",
         duration: "2h",
         body:     "Presentaci\u00f3n breve. Ronda de debates sobre temas aportados por los participantes.",
+        recap:    "/meetings/17-03-2026",
       },
       {
         title:    "Reuni\u00f3n Semanal",

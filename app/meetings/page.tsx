@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link          from "next/link";
 import PageTemplate  from "@/components/PageTemplate";
 import { useI18n }   from "@/lib/i18n";
 import { TEXT_COLOR } from "@/lib/theme";
@@ -124,18 +125,28 @@ export default function MeetingsPage() {
                 {entry.body}
               </p>
 
-              {/* location */}
-              <p style={{ margin: 0, fontSize: "0.68rem", letterSpacing: "0.08em", color: "#0a0a0c", opacity: 0.5, fontWeight: 600 }}>
-                @{" "}
-                <a
-                  href="https://raa.space"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "#0a0a0c", textDecoration: "underline", textUnderlineOffset: "3px" }}
-                >
-                  RAA.SPACE
-                </a>
-              </p>
+              {/* footer row: location + recap link */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.3rem" }}>
+                <p style={{ margin: 0, fontSize: "0.68rem", letterSpacing: "0.08em", color: "#0a0a0c", opacity: 0.5, fontWeight: 600 }}>
+                  @{" "}
+                  <a
+                    href="https://raa.space"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#0a0a0c", textDecoration: "underline", textUnderlineOffset: "3px" }}
+                  >
+                    RAA.SPACE
+                  </a>
+                </p>
+                {entry.recap && (
+                  <Link
+                    href={entry.recap}
+                    style={{ fontSize: "0.68rem", letterSpacing: "0.08em", color: "#0a0a0c", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: "3px" }}
+                  >
+                    Recap ↗
+                  </Link>
+                )}
+              </div>
             </div>
           ))}
         </div>

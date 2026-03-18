@@ -49,18 +49,12 @@ const de: Translations = {
     langNote: "Die Treffen finden auf Lettisch und Englisch statt, wenn Nicht-Lettischsprechende anwesend sind.",
     entries: [
       {
-        title:    "Auftaktveranstaltung",
-        date:     "10. M\u00e4rz 2026",
-        time:     "18:00 \u2013 20:00",
-        duration: "2h",
-        body:     "Auftaktveranstaltung. Kurze Pr\u00e4sentation. Gegenseitiges Kennenlernen. Diskussion \u00fcber Forschungsinteressen der Teilnehmenden.",
-      },
-      {
         title:    "W\u00f6chentliches Treffen",
         date:     "17. M\u00e4rz 2026",
         time:     "18:00 \u2013 20:00",
         duration: "2h",
         body:     "Kurze Pr\u00e4sentation. Diskussionsrunde zu Themen, die von Teilnehmenden eingebracht werden.",
+        recap:    "/meetings/17-03-2026",
       },
       {
         title:    "W\u00f6chentliches Treffen",

@@ -49,18 +49,12 @@ const zh: Translations = {
     langNote: "会议以拉脱维亚语和英语进行，当有不讲拉脱维亚语的参与者出席时。",
     entries: [
       {
-        title:    "介绍性会议",
-        date:     "2026年3月10日",
-        time:     "18:00 – 20:00",
-        duration: "2h",
-        body:     "介绍性会议。简短演示。相互认识。讨论参与者的研究方向。",
-      },
-      {
         title:    "每周例会",
         date:     "2026年3月17日",
         time:     "18:00 – 20:00",
         duration: "2h",
         body:     "简短演示。就参与者提出的议题进行讨论。",
+        recap:    "/meetings/17-03-2026",
       },
       {
         title:    "每周例会",

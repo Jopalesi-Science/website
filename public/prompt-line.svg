@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 24" fill="none" stroke="#bdb2a3" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Window frame -->
+  <rect x="1" y="1" width="78" height="22" rx="4" stroke-width="1.5" fill="black"/>
+  <!-- Chevron > -->
+  <polyline points="8,5 14,12 8,19" stroke-width="2.5"/>
+  <!-- Cursor _ -->
+  <line x1="20" y1="19" x2="32" y2="19" stroke-width="2.5"/>
+</svg>

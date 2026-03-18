@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Jopalesi Science logo — stacked version
+  Icon (160×160) on top; JOPALESI + SCIENCE below, same visual width.
+  lengthAdjust="spacing" → only gaps are stretched, glyphs stay undistorted.
+  ViewBox: 0 0 160 252
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 252">
+
+  <!-- ── Pixel-art icon (original 16×16, scaled ×10 → 160×160) ── -->
+  <rect width="160" height="160" fill="#0a0a0c"/>
+  <!-- tall stick -->
+  <rect x="10"  y="30" width="20" height="130" fill="#bdb2a3"/>
+  <!-- short-top stick -->
+  <rect x="50"  y="0"  width="20" height="80"  fill="#bdb2a3"/>
+  <!-- medium stick -->
+  <rect x="90"  y="60" width="20" height="100" fill="#bdb2a3"/>
+  <!-- split stick — top half -->
+  <rect x="130" y="0"  width="20" height="70"  fill="#bdb2a3"/>
+  <!-- split stick — bottom half -->
+  <rect x="130" y="90" width="20" height="70"  fill="#bdb2a3"/>
+
+  <!-- ── JOPALESI — glyphs undistorted, inter-glyph spacing adjusted ── -->
+  <text x="0" y="202"
+    fill="#bdb2a3"
+    font-family="'Courier New', monospace"
+    font-size="26"
+    font-weight="700"
+    text-anchor="start"
+    textLength="160"
+    lengthAdjust="spacing">JOPALESI</text>
+
+  <!-- ── SCIENCE — same textLength, same visual width ── -->
+  <text x="0" y="241"
+    fill="#bdb2a3"
+    font-family="'Courier New', monospace"
+    font-size="26"
+    font-weight="700"
+    text-anchor="start"
+    textLength="160"
+    lengthAdjust="spacing">SCIENCE</text>
+
+</svg>
