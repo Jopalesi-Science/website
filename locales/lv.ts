@@ -49,18 +49,12 @@ const lv: Translations = {
     langNote: "Tik\u0161an\u0101s notiek latviski un angliski, ja kl\u0101t ir dal\u012bbnieki bez latvie\u0161u valodas zin\u0101\u0161an\u0101m.",
     entries: [
       {
-        title:    "Iepaz\u012b\u0161an\u0101s tik\u0161an\u0101s",
-        date:     "10. marts 2026",
-        time:     "18:00 \u2013 20:00",
-        duration: "2h",
-        body:     "Iepaz\u012b\u0161an\u0101s tik\u0161an\u0101s. \u012asa prez ent\u0101cija. Iepaz\u012b\u0161an\u0101s ar dal\u012bbniek iem. Diskusija par p\u0113tnieku interes\u0113m.",
-      },
-      {
         title:    "Ned\u0113\u013cas tik\u0161an\u0101s",
         date:     "17. marts 2026",
         time:     "18:00 \u2013 20:00",
         duration: "2h",
         body:     "\u012asa prez ent\u0101cija. Diskusijas k\u0101rta par dal\u012bbn ieku iero sin\u0101taj\u0101m t\u0113m\u0101m.",
+        recap:    "/meetings/17-03-2026",
       },
       {
         title:    "Ned\u0113\u013cas tik\u0161an\u0101s",

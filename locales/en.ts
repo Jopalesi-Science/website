@@ -47,18 +47,12 @@ const en = {
     langNote: "Meetings are held in Latvian and English when non-Latvian speakers are present.",
     entries: [
       {
-        title:    "Introductory Meeting",
-        date:     "10 March 2026",
-        time:     "18:00 \u2013 20:00",
-        duration: "2h",
-        body:     "Introductory meeting. Short Presentation. Getting to know each other. Discussing Research Pursuits by the participants.",
-      },
-      {
         title:    "Weekly Meeting",
         date:     "17 March 2026",
         time:     "18:00 \u2013 20:00",
         duration: "2h",
         body:     "Short Presentation. Round of discussions about topics brought by participants.",
+        recap:    "/meetings/17-03-2026",
       },
       {
         title:    "Weekly Meeting",
