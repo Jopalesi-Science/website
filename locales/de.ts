@@ -54,7 +54,14 @@ const de: Translations = {
         time:     "18:00 \u2013 20:00",
         duration: "2h",
         body:     "Kurze Pr\u00e4sentation. Diskussionsrunde zu Themen, die von Teilnehmenden eingebracht werden.",
-        recap:    "/meetings/17-03-2026",
+        recap:     "/meetings/17-03-2026",
+        thumbnail: "/meetings/17-03-2026/gathering.jpg",
+        bullets:   [
+          "Introductions.",
+          "Cameras in the wild + Raspberry Pi.",
+          "Galaxy collisions & space live-cams.",
+          "Ramanujan.",
+        ],
       },
       {
         title:    "W\u00f6chentliches Treffen",
@@ -62,6 +69,9 @@ const de: Translations = {
         time:     "18:00 \u2013 20:00",
         duration: "2h",
         body:     "Kurze Pr\u00e4sentation. Diskussionsrunde zu Themen, die von Teilnehmenden eingebracht werden.",
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
       },
       {
         title:    "W\u00f6chentliches Treffen",
@@ -69,6 +79,10 @@ const de: Translations = {
         time:     "18:00 \u2013 20:00",
         duration: "2h",
         body:     "Kurze Pr\u00e4sentation. Diskussionsrunde zu Themen, die von Teilnehmenden eingebracht werden.",
+
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
       },
     ],
   },
