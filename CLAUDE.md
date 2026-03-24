@@ -1,8 +1,25 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # Jopalesi — Claude Context
+
+## Commands
+
+```bash
+npm run dev        # dev server (localhost:3000)
+npm run build      # static export → ./out
+npm run typecheck  # tsc --noEmit
+npm run lint       # eslint .
+npm run check      # typecheck + lint + build (full pre-deploy check)
+npm run poster     # regenerate public/meetings/template/poster.svg
+```
+
+No test framework is set up.
 
 ## Stack
 - **Next.js 16** App Router, TypeScript, Tailwind v4
-- Static site export (`npm run build`)
+- Static site export (`npm run build`) → deployed to Cloudflare Pages via `wrangler` (config: `wrangler.toml`, output dir: `./out`)
 - Dev server: `npm run dev`
 
 ## Project structure
@@ -62,6 +79,7 @@ Colors (`lib/theme.ts`):
 - `HOVER_COLOR`  `#a46b63` — mid-red on hover
 - `ACTIVE_COLOR` `#8b2424` — dark red for active nav route
 - `BG_COLOR`     `#0a0a0c` — near-black background
+- `TEXT_COLOR`   `#dedad4` — brighter warm white, body text and card backgrounds (meetings cards)
 
 Typography: monospace throughout, uppercase tracking, small sizes (0.65–0.92rem).
 
@@ -94,6 +112,16 @@ Initial positions are reset on resize (via `key={layout}` prop on each button).
 - All sub-pages are `"use client"` and call `const { t } = useI18n()`
 - To add a new locale: create `locales/XX.ts` satisfying `Translations`, add to `locales/index.ts`, add entry to `LANGUAGES` array in `LanguageButton.tsx`
 - To add a new nav key: add to `en.ts` nav object, add to all other locale files, add route to `lib/routes.ts`
+
+## Adding a meeting
+
+1. Add an entry to `meetings.entries` in every locale file (`locales/en.ts` first, then others). Shape:
+   ```ts
+   { title, date, time, duration, body, bullets, thumbnail?, recap? }
+   ```
+   `recap` is a path like `/meetings/17-03-2026` — only add once assets exist.
+2. Create `public/meetings/DD-MM-YYYY/` and place `main.pdf` and optionally `gathering.jpeg` there.
+3. To regenerate the event poster SVG: edit `POSTER_CONTENT` at the top of `scripts/generate-poster.mjs`, then run `npm run poster` → outputs to `public/meetings/template/poster.svg`.
 
 ## Shader (BackgroundManager)
 

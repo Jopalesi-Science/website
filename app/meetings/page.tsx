@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image         from "next/image";
 import Link          from "next/link";
 import PageTemplate  from "@/components/PageTemplate";
 import { useI18n }   from "@/lib/i18n";
 import { TEXT_COLOR, ACTIVE_COLOR } from "@/lib/theme";
+import { MEETING_DATES } from "@/locales/en";
 
 const TG_URL = "https://t.me/+ePj5WYsIPyw2Mzk0";
 
@@ -21,6 +22,20 @@ export default function MeetingsPage() {
   const { t } = useI18n();
   const m = t.meetings;
   const [narrow, setNarrow] = useState(false);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    let idx = 0;
+    for (let i = 0; i < MEETING_DATES.length; i++) {
+      if (new Date(MEETING_DATES[i]) < today) idx = i;
+      else break;
+    }
+    requestAnimationFrame(() => {
+      cardRefs.current[idx]?.scrollIntoView({ block: "start", behavior: "instant" });
+    });
+  }, []);
 
   useEffect(() => {
     const update = () => setNarrow(window.innerWidth < 640);
@@ -64,10 +79,11 @@ export default function MeetingsPage() {
         </div>
 
         {/* ── Right / below: meeting cards ── */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "0.6rem", minWidth: 0 }}>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "0.6rem", minWidth: 0, overflowY: "auto", maxHeight: "calc(71vh - 10rem)", paddingRight: "0.5rem" }}>
           {m.entries.map((entry, i) => (
             <div
               key={i}
+              ref={el => { cardRefs.current[i] = el; }}
               style={{
                 background: TEXT_COLOR,
                 padding:    "0.9rem 1.2rem 1rem",

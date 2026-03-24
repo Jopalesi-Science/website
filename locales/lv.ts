@@ -68,10 +68,30 @@ const lv: Translations = {
         date:     "24. marts 2026",
         time:     "18:00 \u2013 20:00",
         duration: "2h",
-        body:     "\u012asa prez ent\u0101cija. Diskusijas k\u0101rta par dal\u012bbn ieku iero sin\u0101taj\u0101m t\u0113m\u0101m.",
+        body:     "Prezent\u0101cija par t\u012bklu teoriju. Diskusija par skait\u013cu teorijas probl\u0113mu un matem\u0101tikas pamatiem.",
+        recap:     "/meetings/24-03-2026",
+        thumbnail: "/meetings/24-03-2026/gathering.jpeg",
+        bullets:   [
+          "Matem\u0101tikas pamati: funkcijas, veseli skait\u013ci, kopas.",
+          "Skait\u013cu teorija: f(x,y) = ax+by+cxy s\u016brjektivit\u0101te.",
+          "T\u012bklu teorija: motiv\u0101cija, gr\u0101fi un terminolo\u0123ija.",
+          "Markova \u0137\u0113des, PageRank, epid\u0113mijas sl\u012bk\u0161\u0146a, SIR mode\u013ci.",
+        ],
+      },
+      {
+        title:    "\u0100rk\u0101rtas tik\u0161an\u0101s",
+        date:     "27. marts 2026",
+        time:     "18:00 \u2013 20:00",
+        duration: "2h",
+        body:     "Daniela priek\u0161las\u012bjums par B\u0101zeles probl\u0113mu, Eilera ori\u0123in\u0101lo atrisin\u0101jumu un sakari\u012bb\u0101m ar R\u012bmana Zeta funkciju un skait\u013cu teoriju.",
         recap:     "",
         thumbnail: "",
-        bullets:   [],
+        bullets:   [
+          "B\u0101zeles probl\u0113ma: \u2211 1/n\u00b2.",
+          "Eilera atrisin\u0101jums: \u03c0\u00b2/6.",
+          "R\u012bmana Zeta funkcija \u03b6(s).",
+          "Sakari\u012bbas ar pirmskait\u013cu teoriju.",
+        ],
       },
       {
         title:    "Ned\u0113\u013cas tik\u0161an\u0101s",
@@ -84,17 +104,91 @@ const lv: Translations = {
         thumbnail: "",
         bullets:   [],
       },
+      {
+        title:    "Nav tik\u0161an\u0101s",
+        date:     "7. \u2013 21. apr\u012blis 2026",
+        time:     "\u2014",
+        duration: "\u2014",
+        body:     "\u0160aj\u0101 period\u0101 tik\u0161an\u0101s nav. Regul\u0101r\u0101s otrdienas tik\u0161an\u0101s ats\u0101kas 28. apr\u012bl\u012b.",
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
+      },
+      {
+        title:    "Ned\u0113\u013cas tik\u0161an\u0101s",
+        date:     "28. apr\u012blis 2026",
+        time:     "18:00 \u2013 20:00",
+        duration: "2h",
+        body:     "\u012asa prez ent\u0101cija. Diskusijas k\u0101rta par dal\u012bbn ieku iero sin\u0101taj\u0101m t\u0113m\u0101m.",
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
+      },
+      {
+        title:    "Ned\u0113\u013cas tik\u0161an\u0101s",
+        date:     "5. maijs 2026",
+        time:     "18:00 \u2013 20:00",
+        duration: "2h",
+        body:     "\u012asa prez ent\u0101cija. Diskusijas k\u0101rta par dal\u012bbn ieku iero sin\u0101taj\u0101m t\u0113m\u0101m.",
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
+      },
+      {
+        title:    "Ned\u0113\u013cas tik\u0161an\u0101s",
+        date:     "12. maijs 2026",
+        time:     "18:00 \u2013 20:00",
+        duration: "2h",
+        body:     "\u012asa prez ent\u0101cija. Diskusijas k\u0101rta par dal\u012bbn ieku iero sin\u0101taj\u0101m t\u0113m\u0101m.",
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
+      },
+      {
+        title:    "Ned\u0113\u013cas tik\u0161an\u0101s",
+        date:     "19. maijs 2026",
+        time:     "18:00 \u2013 20:00",
+        duration: "2h",
+        body:     "\u012asa prez ent\u0101cija. Diskusijas k\u0101rta par dal\u012bbn ieku iero sin\u0101taj\u0101m t\u0113m\u0101m.",
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
+      },
+      {
+        title:    "Ned\u0113\u013cas tik\u0161an\u0101s",
+        date:     "26. maijs 2026",
+        time:     "18:00 \u2013 20:00",
+        duration: "2h",
+        body:     "\u012asa prez ent\u0101cija. Diskusijas k\u0101rta par dal\u012bbn ieku iero sin\u0101taj\u0101m t\u0113m\u0101m.",
+        recap:     "",
+        thumbnail: "",
+        bullets:   [],
+      },
     ],
   },
   projects: {
     blurb: "Projektu piem\u0113ri aptver pils\u0113tu un soci\u0101lo model\u0113\u0161anu, m\u0101ks\u013c\u012bg\u0101 intelekta arhitekt\u016bru un kiberdro\u0161\u012bbu l\u012bdz pat eso\u0161o p\u0113t\u012bjumu kritis kai anal\u012bzei.",
     entries: [
       {
-        title: "Staigāšana starp pilsētām: Eiropas mobilitātes pētījums",
+        title: "Acis savvaļā: savvaļas kameru uzskaite privātajās zemēs",
         body:
-          "Mobilitāte pilsētās — jo īpaši kāšana — ir plaši pētīta un atzīta par nozīmīgu veselībai, ilgtspējai un dzīves kvalitātei kopumā (piemēram, nesenie pētījumi žurnālā Nature Cities apliecina, kā gājēju infrastruktūra ietekmē pilsētvides labklājību).\n\n" +
-          "Taču krietni mazāk uzmanības ir veltīts papildinošam jautājumam: cik viegli ir ceļot starp pilsētām bez mehāniskā transporta? Vai esam no tā atkarīgi? Cik bieži notiek šādi nemotorizēti starppilsētu ceļojumi?\n\n" +
-          "Šajā projektā mēs pētām mobilitāti starp pilsētām visā Eiropā. Izmantojot satelītdatus un nacionālās mobilitātes datu bāzes, analizējam, cik labi pilsētas ir savienotas gājējiem un citiem nemotorizētajiem ceļotājiem. Salīdzinot dažādus reģionus, cenšamies labāk izprast, kā infrastruktūra, ģeogrāfija un politika veido starppilsētu pieejamību.",
+          "Daudzas sugas samazinās, taču bioloģiskās daudzveidības dati joprojām ir nepilnīgi — īpaši privātajās zemēs, kas Eiropā un citur veido lielu daļu no dabiskajiem dzīvotnēm. Savvaļas kameras piedāvā neinvazīvu dzīvnieku novērošanas veidu, taču līdz šim tās galvenokārt izmantojušas pētniecības iestādes un aizsargājamās teritorijas.\n\n" +
+          "Šajā projektā mēs uzstādām savvaļas kameras privātajās zemēs sadarbībā ar zemes īpašniekiem, apvienojot pieejamo aparatūru ar datorredzuma algoritmiem, lai atklātu un saskaitītu apdraudēto sugu īpatņus. Mērķis ir izveidot izplatītu uzraudzības tīklu, kas papildina oficiālās apsekojumus un dara visus datus publiski pieejamus.\n\n" +
+          "Papildus skaitliski datiem mūs interesē dzīvotņu izmantošana, migrācijas koridori un populāciju tendences laika gaitā — ar pilnībā atvērtām metodēm un datiem.",
+      },
+      {
+        title: "Plūsma bez līdzsvara: optimālais transports diskrētās telpās",
+        body:
+          "Klasiskais optimālais transports jautā, kā par minimālām izmaksām pārvietot masu no viena sadalījuma uz otru, saglabājot kopējo masu. Šī pieeja plaši izmantota matemātikā, ekonomikā un mašīnmācīšanās jomā.\n\n" +
+          "Tomēr masas saglabāšanas ierobežojums bieži ir pārāk stingrs: praksē avoti un notekas var nebūt līdzsvarotas, un daudzās interesantās parādībās — populācijas dinamikā, ekoloģiskajā izplatībā, ekonomiskajos plūsmos — masas radīšana vai iznīcināšana ir daļa no tā, ko vēlamies modelēt. Nelīdzsvarotais optimālais transports atslābina šo prasību, ļaujot masei rasties vai izzust par noteiktu cenu.\n\n" +
+          "Šajā projektā mēs pētām nelīdzsvaroto optimālo transportu diskrētās telpās — grafos un galīgās metriskās telpās — kur ģeometrija ir kombinatoriska, nevis nepārtraukta. Mūs interesē gan šādu uzdevumu teorētiskā struktūra, gan iespējamās pielietojumu jomas izplatīšanās procesos, resursu sadalīšanā un ekoloģiskajā modelēšanā.",
+      },
+      {
+        title: "Kas tur malās: varas dinamika tīklveida sabiedrībās",
+        body:
+          "Ietekme un vara cilvēku sabiedrībās reti ir sadalīta vienmērīgi. Lēmumi izplatās caur sociālajiem un institucionālajiem tīkliem, un šo tīklu struktūra nosaka, kas var rīkoties, kura balss tiek dzirdēta un kuru intereses uzvar.\n\n" +
+          "Šajā projektā mēs pētām varas dinamiku caur tīklu teorijas prizmu. Mēs modelējam sabiedrības kā grafus, kuros mezgli pārstāv dalībniekus un šķautnes kodē ietekmes, resursu plūsmas vai informācijas apmaiņas attiecības. Izmantojot spektrālo grafu teoriju, Markova ķēdes un spēļu teorijas idejas, mēs pētām, kā strukturālās īpašības — centrālums, klasterizācija, sašaurinājumi — rada hierarhijas un varas asimetrijas.\n\n" +
+          "Mūs īpaši interesē, kā iejaukšanās tīkla struktūrā — šķautņu pievienošana vai noņemšana, resursu pārdales — maina varas līdzsvaru, ar sekām institucionālajam dizainam un kolektīvajai lēmumu pieņemšanai.",
       },
       {
         title: "Sistēmu pēkšņo izmaiņu izpratne ar vienkāršu modeļu palīdzību",
@@ -102,6 +196,13 @@ const lv: Translations = {
           "Daudzas sistēmas dabā un sabiedrībā var mainīties pēkšņi un dramatiski — piemēram, slimības strauja izplatīšanās vai pēkšņas kolektīvas uzvedības maiņa. Zinātnieki šādas pārmaiņas apraksta kā fāžu pārejas.\n\n" +
           "Šīs pārejas parasti tiek pētītas ārkārtīgi lielās, idealizētās sistēmās. Šajā projektā mēs tā vietā pētām, kā šādas izmaiņas rodas mazākās, strukturētās sistēmās, kas tuvāk atgādina reālās pasaules tīklus.\n\n" +
           "Izpētei izmantojam vienkāršotus \"rotaļu modeļus\" — tostarp režģveida epidēmijas modeļus, kuros indivīdi var pārvietoties starp jutīgiem un inficētiem stāvokļiem. Pētot šīs kontrolētās sistēmas, cenšamies labāk izprast, kā liela mēroga uzvedības izmaiņas rodas no vienkāršām lokālām mijiedarbībām.",
+      },
+      {
+        title: "Staigāšana starp pilsētām: Eiropas mobilitātes pētījums",
+        body:
+          "Mobilitāte pilsētās — jo īpaši kāšana — ir plaši pētīta un atzīta par nozīmīgu veselībai, ilgtspējai un dzīves kvalitātei kopumā (piemēram, nesenie pētījumi žurnālā Nature Cities apliecina, kā gājēju infrastruktūra ietekmē pilsētvides labklājību).\n\n" +
+          "Taču krietni mazāk uzmanības ir veltīts papildinošam jautājumam: cik viegli ir ceļot starp pilsētām bez mehāniskā transporta? Vai esam no tā atkarīgi? Cik bieži notiek šādi nemotorizēti starppilsētu ceļojumi?\n\n" +
+          "Šajā projektā mēs pētām mobilitāti starp pilsētām visā Eiropā. Izmantojot satelītdatus un nacionālās mobilitātes datu bāzes, analizējam, cik labi pilsētas ir savienotas gājējiem un citiem nemotorizētajiem ceļotājiem. Salīdzinot dažādus reģionus, cenšamies labāk izprast, kā infrastruktūra, ģeogrāfija un politika veido starppilsētu pieejamību.",
       },
     ],
   },
